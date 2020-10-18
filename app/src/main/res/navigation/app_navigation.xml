@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/blueFragment">
+
+    <fragment
+        android:id="@+id/blueFragment"
+        android:name="com.example.navigationsample.BlueFragment"
+        android:label="fragment_blue"
+        tools:layout="@layout/fragment_blue" >
+        <action
+            android:id="@+id/action_blueFragment_to_redFragment"
+            app:destination="@id/redFragment"
+            app:enterAnim="@anim/slide_in_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/redFragment"
+        android:name="com.example.navigationsample.RedFragment"
+        android:label="fragment_red"
+        tools:layout="@layout/fragment_red"
+        app:startDestination="@id/action_redFragment_to_blueFragment">
+        <action
+            android:id="@+id/action_redFragment_to_blueFragment"
+            app:destination="@id/blueFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popUpTo="@id/blueFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
